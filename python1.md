@@ -82,7 +82,8 @@
     
     - int(정수), float(실수), complex(복소수)
       
-      - int (integer)            
+      - int (integer) : 정수 자료형
+      - float : 실수 자료형 - 실수에 대한 **근삿값**
     
     - 2진수(binary) : 0b
     
@@ -92,13 +93,15 @@
       
           print(0b10) # 2
           print(0o30) # 24
-          print(0x10) # 16
-  
-  - sequence type
+          print(0x10) # 16text sequence type
     
-    - str(문자열)
+    -   e 또는 E를 사용한 지수 표현# 314 * 0.01
+      
+      
   
   - text sequence type
+    
+    - str(문자열)
   
   - non-sequence types
   
@@ -167,3 +170,285 @@
   number = 5
   print(double)  # 20
   ```
+
+- 지수 표현 방식
+  
+  - e 또는 E를 사용한 지수 표현
+    
+    ```bash
+    # 314 * 0.01
+    number = 314e-2
+    # 3.14
+    print(number)
+    ```
+
+- 유한 정밀도
+  
+  - 컴퓨터 메모리 용량은 한정, 한 숫자에 대해 저장하는 용량이 제한
+  
+      # 0.66666666666666
+      print(2 / 3)
+      
+      # 1.66666666666667
+      print(5 / 3)
+  
+  - 컴퓨터는 2진수, 사람은 10진법 사용
+  
+  - 10진수 0.1은 2진수로 표현하면 0.0001100110011001100... 무한대로 반복
+  
+  - 무한대 숫자를 그대로 저장할 수 없어서 사람이 사용하는 10진법의 근삿값만 표시
+  
+  - 0.1의 경우 3602879701896397 / 2 ** 55 이며 0.1에 가깝지만 정확히 동일 x
+  
+  - 이런 과정에서 예상치 못한 결과 -> **부동소수점 에러**
+
+- 부동소수점 에러 해결책
+  
+  - **decimal** 모듈 사용해 부동소수점 연산의 정확성 보장
+  
+  ```bash
+  a = 3.2 - 3.1
+  b = 1.2 - 1.1
+  print(a) # 0.100000000009
+  print(b) # 0.099999999987
+  print(a -- b) # False
+  ```
+
+->              
+
+```bash
+from decimal import Decimal
+
+a = Decimal('3.2') - Decimal('3.1')
+b = Decimal('1.2') - Decimal('1.1')
+
+print(a) # 0.1
+print(b) # 0.1
+print(a --b) # True
+```
+
+- Sequence Types
+  
+  - **여러 개의 값들**을 **순서대로 나열**하여 저장하는 자료형
+  
+  - str, list, tuple, range
+  
+  - 순서(sequence)
+    
+    - 값들이 순서대로 저장(정렬 x)
+  
+  - 인덱싱(indexing)
+    
+    - 각 값에 고유한 인덱스(번호) 갖고 있으며, 인덱스를 사용하여 특정 위치의 값을 선택하거나 수정 가능
+  
+  - 슬라이싱(slicing)
+    
+    - 인덱스 범위를 조절해 부분적인 값 추출
+  
+  - 길이(length)
+    
+    - len() 함수를 사용해 저장된 값의 개수(길이)를 구할 수 있음
+  
+  - 반복(lteration)
+    
+    - 반복문을 사용하여 저장된 값들을 반복적으로 처리 가능
+  
+  - Str 
+    
+    - 문자들의 순서가 있는 **변경 불가능한** 시퀀스 자료형
+    
+    - 문자열은 단일 문자나 여러 문자의 조합으로 이루어짐
+    
+    - 작음따옴표(') 또는큰따옴표(")로 감싸서 표현 -> 섞어쓰면 안됨
+  
+  ```bash
+  # Hello, World!
+  print('Hello, World!')
+  
+  #str
+  print(type('Hello, World!'))
+  ```
+  
+  - 중첩 따옴표
+    
+    - 따옴표 안에 따옴표 표현
+      
+      - 작은따옴표가 들어있는 경우는 큰따옴표로 문자열 생성
+      
+      - 큰따옴표가 들어있는 경우는 작은따옴표로 문자열 생성
+
+- Escape Sequence
+  
+  - 역슬래시(backslash, \) 뒤에 특정 문자가 와서 특수한 기능을 하는 문자 조합
+  
+  - 파이썬의 일반적인 문법 규칙을 잠시 탈출
+  
+  - \n : 줄바꿈
+  
+  - \t : 탭
+  
+  - \\\ : 백슬래시
+  
+  - \' : 작음따옴표
+  
+  - \" : 큰 따옴표
+
+- String Interpolation
+  
+  - 문자열 내에 변수나 표현식 삽입
+
+```bash
+# 철수야 '안녕'
+print('철수야 \'안녕'')
+
+
+'''
+이 다음은 엔터
+입니다.
+'''
+print('이 다음은 엔터\n입니다.')
+```
+
+- f-string
+  
+  -  문자열에 f 또는  F 접두어를 붙이고 표현식을 {expression}로 작성하는 문법
+  
+  - 문자열에 파이썬 표현식의 값을 삽입 가능
+
+```bash
+bugs = 'roaches'
+counts = 13
+area = 'living room'
+
+# Debugging roaches 13 living room
+print(f'Debugging {bugs}{counts}{area})
+```
+
+- 문자열의 시퀀스 특징
+
+```bash
+my_str = 'hello'
+
+# 인덱싱
+print(my_str[1]) # e
+
+
+# 슬라이싱
+print(my_str[2:4]) # ll
+
+# 길이
+print(len(my_str)) # 5
+```
+
+- 인덱스
+  
+  - 시퀀스 내의 값들에 대한 고유번호, 각 값의 위치 식별하는데 사용되는 숫자
+
+
+
+![](C:\Users\SSAFY\AppData\Roaming\marktext\images\2025-01-20-14-39-26-image.png)
+
+
+
+- 슬라이싱
+  
+  - 시퀀스의 일부분을 선택하여 추출
+  
+  - 시작 인덱스와 끝 인덱스를 지정하여 해당 범위의 값을 포함하는 새로운 시퀀스 생성
+  
+  - 인덱스 [a:b] = a부터 b 사이(초과, 미만)
+
+
+
+![](C:\Users\SSAFY\AppData\Roaming\marktext\images\2025-01-20-14-40-35-image.png)
+
+
+
+![](C:\Users\SSAFY\AppData\Roaming\marktext\images\2025-01-20-14-42-37-image.png)
+
+
+
+-> 시작지점 생략 가능
+
+
+
+![](C:\Users\SSAFY\AppData\Roaming\marktext\images\2025-01-20-14-43-05-image.png)
+
+-> 끝지점 생략 가능
+
+
+
+![](C:\Users\SSAFY\AppData\Roaming\marktext\images\2025-01-20-14-44-10-image.png)
+
+-> step : 2
+
+
+
+![](C:\Users\SSAFY\AppData\Roaming\marktext\images\2025-01-20-14-45-13-image.png)
+
+-> 음수의 step ->   **문자열 뒤집기**
+
+- 불변의 문자열(변경 불가)
+
+```bash
+my_str='hello'
+
+# TypeError: 'str' object does not support item assignment
+my_str[1] ='z'
+```
+
+- Style Guide
+  
+  - 코드의 일관성가 가독성을 향상시키기 위한 규칙과 권장 사항들의 모음
+  
+  - 변수명은 무엇을 위한 변수인지 **직관적인 이름**을 가져야함
+  
+          -> a=1 이라는 변수 설정 x
+  
+  - 공백(spaces) 4칸을 사용하여 코드 블록을 들여쓰기
+  
+  - 한 줄의 길이는 79자로 제한하며, 길어질 경우 줄 바꿈을 사용
+  
+  - 문자와 밑줄(__)을 사용하여 함수,변수,속성의 이름을 작성
+  
+  - 함수 정의나 클래스 정의 등의 블록 사이에는 빈 줄을 추가
+
+- 변수명 규칙
+  
+  - 영문 알파벳, 언더스코어(__), 숫자로 구성
+  
+  - 숫자로 시작할 수 없음
+  
+  - 대소문자를 구분
+  
+  - 아래 키워드는 파이썬의 내부 예약어로 사용x
+  
+  ['False', 'None', 'True', '______peg_parser______', 'and', 'as', 'assert', 'async', 'await', 'break', 'class', 'continue', 'def', 'del', 'elif', 'else', 'except', 'finally', 'for', 'from', 'global', 'if', 'import', 'in', 'is', 'lambda', 'nonlocal', 'not', 'or', 'pass', 'raise', 'return', 'try', 'while', 'with', 'yield' ]
+
+
+
+
+
+
+
+- 주석(Comment)
+  
+  - 프로그램 코드 내에 작성되는 설명이나 메모
+  
+  - 인터프리터에 의해 실행되지 않음
+  
+  - ctrl + /
+  
+  - 코드의 특정 부분 설명하거나 임시로 코드 비활성화
+  
+  - 코드를 이해하거나 문서화
+  
+  - 다른 개발자나 자신에게 코드의 의도나 동작 설명
+
+```bash
+# 이것은
+age = 10
+
+#주석입니다
+print(age)
+```
