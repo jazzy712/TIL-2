@@ -20,22 +20,27 @@ bugs = 'roaches'
 counts = 13
 area = 'living room'
 
+print(f'Debugging {bugs} {counts} {area}')
+
 
 # 문자열의 시퀀스 특징
 my_str = 'hello'
 # 1. 인덱싱
-print()  # e
+print(my_str[1])  # e
 
 # 2. 슬라이싱
-print()  # ll
-print()  # hel
-print()  # lo
-print()  # hlo
-print()  # olleh
+print(my_str[2:4])  # ll
+print(my_str[:3])  # hel
+print(my_str[3:])  # lo
+print(my_str[0:5:2])  # hlo
+print(my_str[::-1])  # olleh
 
 # 3. 길이
-print()  # 5
+print(len(my_str))  # 5
 
 # 4. 문자열은 불변
 # TypeError: 'str' object does not support item assignment
-# my_str[1] = 'z'
+my_str[1] = 'z'
+
+# 재할당 (문자열을 바꾼 것이 아님)
+my_str = 'hzllo'
