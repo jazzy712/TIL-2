@@ -77,5 +77,3 @@ print(my_set_1 - my_set_2)  # {1, 2}
 # 교집합
 print(my_set_1 & my_set_2)  # {3}
 ```
-
-

@@ -1,7 +1,5 @@
 ## Sequence Types
 
-
-
 - 여러 개의 값들을 **순서대로 나열**(정렬 x)
 
 - str(문자열)
@@ -70,10 +68,7 @@ print(my_list) # [100, 2, 3]
 my_list_test = [1, 'world', 3]
 my_list_test[1] = 100
 print(my_list_test) # [1, 100, 3]
-
 ```
-
-
 
 - tuple
   
@@ -90,7 +85,7 @@ print(my_list_test) # [1, 100, 3]
   - (1) -> int, (1,) -> tuple
   
   - 튜플의 **불변 특성**을 사용하여 **내부 동작**과 안전한 데이터 전달에 사용
-  
+    
            -> 다중할당, 값 교환, 그룹화, 함수 다중 반환 값 등
 
 ```bash
@@ -143,8 +138,6 @@ x, y = y, x
 temp = (y, x)  # 튜플 생성
 x, y = temp  # 튜플 언패킹
 print(x, y)  # 2 1
-
-
 ```
 
 ```bash
@@ -153,8 +146,6 @@ student = ('Kim', 20, 'CS')
 name, age, major = student  # 언패킹 
 
 print(name, age, major)  # Kim 20 CS
-
-
 ```
 
 - range
@@ -167,7 +158,7 @@ print(name, age, major)  # Kim 20 CS
     
     - **0**부터 **n-1**까지 1씩 증가
   
-  -  range(n,m)
+  - range(n,m)
     
     - **n**부터  **m-1** 까지의 1씩 증가
   
@@ -241,7 +232,4 @@ for i in range(1, 10):
 
 for i in range(1, 10, 2):
     print(i)  # 1 3 5 7 9
-
 ```
-
-

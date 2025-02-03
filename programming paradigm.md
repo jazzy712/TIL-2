@@ -295,8 +295,8 @@ print(c2.pi)  # 3.14
           pass
   ```
 
-```
 ```python
+
 class Counter:
   def __init__(self):
       self.count = 0

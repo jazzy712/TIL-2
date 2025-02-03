@@ -368,7 +368,6 @@ en_scores = [40, 20, 30, 50]
 
 for student_scores in zip(kr_scores, math_scores, en_scores):
     print(student_scores) 
-
 ```
 
 ```python
@@ -433,37 +432,35 @@ for score in zip(*scores):
     - local scope
       
       - 함수가 호출될 때 생성되고, 함수가 종료될 때까지 유지 
-      
-       
+
+- 이름 검색 규칙
   
-  - 이름 검색 규칙
+  - 파이썬에서 사용되는 이름(식별자)들은 특정한 이름공간(namespace)에 저장되어 있음
+  
+  - LEGB Rule이라 부름
     
-    - 파이썬에서 사용되는 이름(식별자)들은 특정한 이름공간(namespace)에 저장되어 있음
+    - 1. Local scope : 지역 범위(현재 작업중인 범위
+      
+      2. enclosed scope : 지역 범위 한 단계 위 범위
+      
+      3. Global scope : 최상단에 위치한 범위
+      
+      4. Built-in scope : 모든 것을 담고 있는 범위(정의하지 않고 사용할 수 있는 모든 것)
     
-    - LEGB Rule이라 부름
-      
-      - 1. Local scope : 지역 범위(현재 작업중인 범위
-        
-        2.  enclosed scope : 지역 범위 한 단계 위 범위
-        
-        3. Global scope : 최상단에 위치한 범위
-        
-        4. Built-in scope : 모든 것을 담고 있는 범위(정의하지 않고 사용할 수 있는 모든 것)
-      
-      - 함수 내에서는 바깥 Scope의 변수에 접근 가능하니 수정 불가
+    - 함수 내에서는 바깥 Scope의 변수에 접근 가능하니 수정 불가
+  
+  - LEGB Rule 예시
     
-    - LEGB Rule 예시
-      
-      - sum 이라는 이름을 global scope에 사용하게 되면서 기존에 built-in scope에 있던 내장함수  sum을 사용하지 못하게 됨
-      
-      - sum을 참조 시 LEGB Rule에 따라 global에서 먼저 찾기 때문
+    - sum 이라는 이름을 global scope에 사용하게 되면서 기존에 built-in scope에 있던 내장함수  sum을 사용하지 못하게 됨
+    
+    - sum을 참조 시 LEGB Rule에 따라 global에서 먼저 찾기 때문
 
 ```python
  print(sum) # <built-in function sum>
  print(sum(range(3))) # 3
- 
+
  sum = 5
- 
+
  print(sum) # 5
  print(sum(range(3))) # TypeError: 'int' object is not callable
 ```
@@ -519,7 +516,7 @@ def increment(num):
     global num
 ```
 
--  **함수 스타일 가이드**
+- **함수 스타일 가이드**
   
   - 함수 이름 작성 규칙
     
@@ -549,10 +546,9 @@ def calculate_total_price(price, tax):
 # Bad
 def calc_price(p, t):
     return p + (p * t)
-
 ```
 
--  **단일 책임 원칙**
+- **단일 책임 원칙**
   
   - 모든 객체는 하나의 명확한 목적과 책임만을 가져야함
 
@@ -624,7 +620,7 @@ my_func(1, 2, 3, 4, 5)
 
 - print 함수 패킹 예시
   
-  -  print 함수에서 임의의 가변 인자를 작성할 수 있었던 이유
+  - print 함수에서 임의의 가변 인자를 작성할 수 있었던 이유
   
   - 인자 개수에 상관없이 튜플 하나로 패킹되어서 내부에서 처리 
 
@@ -690,8 +686,6 @@ my_function(**my_dict)  # 1 2 3
     
     - 언패킹 연산자로 사용될 때, 딕셔너리의 키-값 쌍을 개별 키워드 인자로 전달
 
-
-
 - **람다 표현식(lambda expressions)**
   
   - 익명 함수를 만드는데 사용되는 표현식
@@ -699,8 +693,6 @@ my_function(**my_dict)  # 1 2 3
   - 한 줄로 간단한 함수를 정의
   
   - 함수를 매개변수로 전달하는 경우에도 유용하게 활용
-
-
 
 ```python
 lambda 매개변수: 표현식
@@ -745,6 +737,4 @@ squared1 = list(map(square, numbers))
 # lambda 사용
 squared2 = list(map(lambda x: x**2, numbers))
 # print(squared2)  # [1, 4, 9, 16, 25]
-
-
 ```
