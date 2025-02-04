@@ -74,7 +74,6 @@ print(numbers) # [1, 2, 3, 4]
     # islower
     print(string1.islower())  # False
     print(string2.islower())  # False
-    
     ```
     
     - s.isalpha()
@@ -90,8 +89,6 @@ print(numbers) # [1, 2, 3, 4]
     print(string1.isalpha())  # True
     print(string2.isalpha())  # False
     ```
-
-
 
 - 문자열 조작 메서드
   
@@ -180,10 +177,7 @@ print(numbers) # [1, 2, 3, 4]
   # swapcase
   new_text5 = text.swapcase()
   print(new_text5)  # HEllO, WOrLD!
-  
   ```
-
-
 
 - **List**
   
@@ -308,7 +302,4 @@ print(my_list)  # [1, 2, 3, 100]
 # sort(내림차순 정렬)
 my_list.sort(reverse=True)
 print(my_list)  # [100, 3, 2, 1]
-
 ```
-
-

@@ -95,25 +95,23 @@
           print(0o30) # 24
           print(0x10) # 16text sequence type
     
-    -   e 또는 E를 사용한 지수 표현# 314 * 0.01
-      
-      
+    - e 또는 E를 사용한 지수 표현# 314 * 0.01
+
+- text sequence type
   
-  - text sequence type
-    
-    - str(문자열)
-  
-  - non-sequence types
-  
-  - boolean, none, functions ...
-  
-  - 데이터 타입에 맞는 연산을 타입이 수행
-  
-  - -(음수부호), +(덧셈), -(뺄셈), *(곱셈), /(나눗셈), //(몫), %(나머지), **(거듭제곱)
-  
-  - ** -> - -> *./,//,% -> +,- : 연산자 우선순위
-  
-  - -2 ** 4 = -16, -(2 ** 4) = -16, (-2) ** 4 = 16
+  - str(문자열)
+
+- non-sequence types
+
+- boolean, none, functions ...
+
+- 데이터 타입에 맞는 연산을 타입이 수행
+
+- -(음수부호), +(덧셈), -(뺄셈), *(곱셈), /(나눗셈), //(몫), %(나머지), **(거듭제곱)
+
+- ** -> - -> *./,//,% -> +,- : 연산자 우선순위
+
+- -2 ** 4 = -16, -(2 ** 4) = -16, (-2) ** 4 = 16
 
 - 변수
   
@@ -185,11 +183,13 @@
 - 유한 정밀도
   
   - 컴퓨터 메모리 용량은 한정, 한 숫자에 대해 저장하는 용량이 제한
-  
-      # 0.66666666666666
+    
+    # 0.66666666666666
+    
       print(2 / 3)
-      
-      # 1.66666666666667
+    
+    # 1.66666666666667
+    
       print(5 / 3)
   
   - 컴퓨터는 2진수, 사람은 10진법 사용
@@ -311,7 +311,7 @@ print('이 다음은 엔터\n입니다.')
 
 - f-string
   
-  -  문자열에 f 또는  F 접두어를 붙이고 표현식을 {expression}로 작성하는 문법
+  - 문자열에 f 또는  F 접두어를 붙이고 표현식을 {expression}로 작성하는 문법
   
   - 문자열에 파이썬 표현식의 값을 삽입 가능
 
@@ -344,11 +344,7 @@ print(len(my_str)) # 5
   
   - 시퀀스 내의 값들에 대한 고유번호, 각 값의 위치 식별하는데 사용되는 숫자
 
-
-
 ![](C:\Users\SSAFY\AppData\Roaming\marktext\images\2025-01-20-14-39-26-image.png)
-
-
 
 - 슬라이싱
   
@@ -356,33 +352,21 @@ print(len(my_str)) # 5
   
   - 시작 인덱스와 끝 인덱스를 지정하여 해당 범위의 값을 포함하는 새로운 시퀀스 생성
   
-  - 인덱스 [a:b] = a부터 b 사이(초과, 미만)
-
-
+  - 인덱스 [a:b] = a부터 b 사이(이상, 미만)
 
 ![](C:\Users\SSAFY\AppData\Roaming\marktext\images\2025-01-20-14-40-35-image.png)
 
-
-
 ![](C:\Users\SSAFY\AppData\Roaming\marktext\images\2025-01-20-14-42-37-image.png)
 
-
-
 -> 시작지점 생략 가능
-
-
 
 ![](C:\Users\SSAFY\AppData\Roaming\marktext\images\2025-01-20-14-43-05-image.png)
 
 -> 끝지점 생략 가능
 
-
-
 ![](C:\Users\SSAFY\AppData\Roaming\marktext\images\2025-01-20-14-44-10-image.png)
 
 -> step : 2
-
-
 
 ![](C:\Users\SSAFY\AppData\Roaming\marktext\images\2025-01-20-14-45-13-image.png)
 
@@ -424,12 +408,6 @@ my_str[1] ='z'
   - 아래 키워드는 파이썬의 내부 예약어로 사용x
   
   ['False', 'None', 'True', '______peg_parser______', 'and', 'as', 'assert', 'async', 'await', 'break', 'class', 'continue', 'def', 'del', 'elif', 'else', 'except', 'finally', 'for', 'from', 'global', 'if', 'import', 'in', 'is', 'lambda', 'nonlocal', 'not', 'or', 'pass', 'raise', 'return', 'try', 'while', 'with', 'yield' ]
-
-
-
-
-
-
 
 - 주석(Comment)
   

@@ -2,12 +2,12 @@
 # 입력을 받기위한 input 함수는 절대 사용하지 않습니다.
 # 파이썬 내장 함수 min 함수를 사용하지 않습니다.
 def min_score(scores):
-    min_value = scores[0]  # 첫 번째 값을 최소값으로 설정
-    for score in scores:  # 리스트 전체를 순회하며 비교
-        if score < min_value:
-            min_value = score # 더 작은 값이 있으면 업데이트
-    return min_value  # 최솟값 반환
-    # 여기에 코드를 작성하여 함수를 완성합니다.
+    min_data = scores[0]
+    for score in scores:
+        if score < min_data:
+           min_data = score
+    return min_data
+       
     
 
 # 추가 테스트를 위한 코드 작성 가능
@@ -24,3 +24,4 @@ print(min_score([50, 70, 50, 45, 80, 80])) # 45
 
 # 테스트 코드는 이곳에
 print(min_score([100, 100]))  
+

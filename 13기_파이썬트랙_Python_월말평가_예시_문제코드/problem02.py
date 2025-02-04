@@ -7,7 +7,7 @@ def under_60(scores):
     for score in scores:  # scores 리스트에서 하나씩 점수를 확인
         if score < 60:
             count += 1 # 60점 미만일 때마다 카운트 하나씩 증가
-    return count  # 60점 미만 과목의 개수수 반환
+    return count  # 60점 미만 과목의 개수 반환
 
 # 추가 테스트를 위한 코드 작성 가능
 # 예) print(함수명(인자))
