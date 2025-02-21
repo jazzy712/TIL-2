@@ -1,5 +1,6 @@
 def check_brackets(str):
-    # stack이 비어있다고 가정
+    # stack 이 비어있다고 가정
+    # stack 이 비어있으면 유효한 인덱스가 없으므로 top 을 -1로 초기화함
     top = -1
     stack = [0] * 100
     # 괄호의 짝이 맞다고 가정
@@ -17,8 +18,8 @@ def check_brackets(str):
         elif i == ')':
             # 그런데 스택이 비어있으면?
             if top == -1:
-                # 닫는 괄호가 먼저 나와 짝이 맞지 않아서 -1 저장하고 반복문 종료
-                result = -1
+                # 닫는 괄호가 먼저 나와 짝이 맞지 않아서 0 저장하고 반복문 종료
+                result = 0
                 break
             # 스택에 여는 괄호가 있다면?
             else:
@@ -26,8 +27,8 @@ def check_brackets(str):
                 top -= 1
     # 검사가 끝났는데 스택에 여는 괄호가 남아있다면?
     if top > -1:
-        # 짝이 맞지 않으므로 -1 저장
-        result = -1
+        # 짝이 맞지 않으므로 0 저장
+        result = 0
     # 결과 반환
     return result
 
