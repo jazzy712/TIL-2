@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>기본 정보 수정 페이지</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@100..900&display=swap" rel="stylesheet">
+  <style>
+    .section-title {
+      border-left: 4px solid #FFD700;
+      padding-left: 10px;
+      margin-bottom: 20px;
+      font-weight: bold;
+      color: #8B4513;
+    }
+
+    .profile-image-container {
+      width: 200px;
+      height: 200px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .profile-image {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .card {
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .option-title {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .form-check {
+      margin-bottom: 8px;
+      display: inline-block;
+      margin-right: 15px;
+    }
+
+    .main-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .save-btn {
+      background-color: #00BFFF;
+      border: none;
+    }
+
+    .profile,
+    .self-introduction {
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .section-divider {
+      border-top: 1px solid #eee;
+      margin: 20px 0;
+    }
+
+    .main-card {
+      border: 1px solid #ddd;
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      background-color: #fff;
+      margin-bottom: 30px;
+    }
+
+    .card-title {
+      text-align: center;
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+
+    .checkbox-group {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .radio-group {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .intro-container {
+      display: flex;
+      align-items: stretch;
+    }
+
+    .intro-textarea {
+      flex-grow: 1;
+      margin-right: 10px;
+    }
+
+    .update-btn {
+      background-color: #00BFFF;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 106px;
+    }
+
+    .form-label {
+      font-weight: bold;
+      text-align: left;
+      display: block;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+      text-align: left;
+    }
+
+    .readonly-field {
+      background-color: #f8f9fa;
+    }
+
+    .banner {
+      background-color: #20c997;
+      color: white;
+      padding: 15px 0;
+      width: 100%;
+    }
+
+    .banner-title {
+      margin: 0;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .nav-links {
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    .nav-link {
+      color: #6c757d;
+      text-decoration: none;
+      padding: 5px 10px;
+    }
+
+    .nav-link:hover {
+      text-decoration: underline;
+      color: #6c757d;
+    }
+
+    .nav-hr {
+      border-color: #20c997;
+      border-width: 2px;
+      margin-top: 0;
+    }
+
+    .link-container {
+      margin-top: 15px;
+      text-align: center;
+    }
+
+    .link-item {
+      color: #6c757d;
+      text-decoration: none;
+      padding: 5px 10px;
+    }
+
+    .link-divider {
+      margin-top: 5px;
+      border-color: #20c997;
+      border-width: 2px;
+    }
+
+    .hahmlet-uniquifier {
+      font-family: "Hahmlet", serif;
+      font-optical-sizing: auto;
+      font-weight: weight;
+      font-style: normal;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="hahmlet-uniquifier">
+    <div class="banner">
+      <div class="container">
+        <h5 class="banner-title">정준웅님의 프로필 페이지</h5>
+      </div>
+    </div>
+    <div class="link-container">
+      <div class="d-flex justify-content-center">
+        <a href="index.html" class="link-item me-4">기본 정보 수정</a>
+        <a href="index2.html" class="link-item">포트폴리오 수정</a>
+      </div>
+      <hr class="link-divider">
+    </div>
+
+    <div class="container main-container mt-4">
+      <div class="main-card">
+        <h3 class="card-title">기본 정보 수정</h3>
+        <div class="row">
+          <!-- 왼쪽: 프로필 사진 및 자기소개 -->
+          <div class="col-md-6">
+            <div class="card">
+              <h4 class="profile">프로필 사진</h4>
+              <div class="profile-image-container mb-3">
+                <img src="totoro.jpg" alt="프로필 사진" class="profile-image">
+              </div>
+              <div class="section-divider"></div>
+
+              <h4 class="self-introduction">자기 소개</h4>
+              <div class="mb-3 intro-container">
+                <div class="intro-textarea">
+                  <textarea class="form-control" rows="4" placeholder="자기 소개를 입력해주세요"></textarea>
+                </div>
+                <button class="btn btn-primary update-btn" style="min-height: auto;">Update</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 오른쪽: 투자 상품 선호도, 투자 스타일, 관심 종목 -->
+          <div class="col-md-6">
+            <div class="card">
+              <div class="mb-4">
+                <h5 class="option-title">투자상품 선호도</h5>
+                <div class="checkbox-group">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="stock" checked>
+                    <label class="form-check-label" for="stock">주식</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="bond" checked>
+                    <label class="form-check-label" for="bond">채권</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="realestate">
+                    <label class="form-check-label" for="realestate">부동산</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="crypto" checked>
+                    <label class="form-check-label" for="crypto">가상화폐</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="section-divider"></div>
+
+              <div class="mb-4">
+                <h5 class="option-title">투자 스타일</h5>
+                <div class="radio-group">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="investStyle" id="conservative">
+                    <label class="form-check-label" for="conservative">안정적</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="investStyle" id="balanced">
+                    <label class="form-check-label" for="balanced">중립적</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="investStyle" id="aggressive" checked>
+                    <label class="form-check-label" for="aggressive">공격적</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="section-divider"></div>
+              <div class="mb-4">
+                <h5 class="option-title">관심 종목</h5>
+                <div class="checkbox-group">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="tech" checked>
+                    <label class="form-check-label" for="tech">정보기술</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="consumer">
+                    <label class="form-check-label" for="consumer">소비재</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="finance" checked>
+                    <label class="form-check-label" for="finance">금융</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="main-card">
+        <div class="row">
+          <div class="col-md-12">
+            <form>
+              <div class="form-group">
+                <label for="memberNumber" class="form-label">회원번호</label>
+                <input type="text" class="form-control readonly-field" id="memberNumber" value="1" readonly>
+              </div>
+
+              <div class="form-group">
+                <label for="memberId" class="form-label">ID</label>
+                <input type="text" class="form-control readonly-field" id="memberId" value="김싸피" readonly>
+              </div>
+
+              <div class="form-group">
+                <label for="email" class="form-label">Email</label>
+                <div class="input-group">
+                  <input type="email" class="form-control" id="email" placeholder="이메일을 설정해주세요">
+                  <span class="input-group-text">@example.com</span>
+                  <button class="btn btn-primary update-btn" style="min-height: auto;">Update</button>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="nickname" class="form-label">Nickname</label>
+                <div class="input-group">
+                  <input type="text" class="form-control" id="nickname" placeholder="닉네임을 설정해주세요">
+                  <button class="btn btn-primary update-btn" style="min-height: auto;">Update</button>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="age" class="form-label">나이</label>
+                <div class="input-group">
+                  <input type="text" class="form-control" id="age" placeholder="나이를 설정해주세요">
+                  <button class="btn btn-primary update-btn" style="min-height: auto;">Update</button>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">자산과 연봉</label>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="input-group">
+                      <input type="text" class="form-control" placeholder="현재 자산을 입력해주세요">
+                      <span class="input-group-text">만원</span>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="input-group">
+                      <input type="text" class="form-control" placeholder="연봉을 입력해주세요">
+                      <span class="input-group-text">만원</span>
+                      <button class="btn btn-primary update-btn" style="min-height: auto;">Update</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
