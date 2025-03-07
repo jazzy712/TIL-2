@@ -80,8 +80,6 @@
    - 트리의 높이: 트리 내 노드들의 높이 중 **가장 큰 값**
    - **0부터 시작할 수도, 1부터 시작할 수도 있음** 
 
-
-
 ## Binary Tree(이진 트리)
 
 - 개념
@@ -159,8 +157,6 @@
     
     ## 
 
-
-
 ## 이진 탐색 트리(Binary Search Tree, BST)
 
 <img src="file:///C:/Users/SSAFY/AppData/Roaming/marktext/images/2025-03-04-14-41-41-image.png" title="" alt="" data-align="center">
@@ -228,8 +224,6 @@
 - **우선순위 큐(Priority Queue)** 구현에 힙을 사용
   → 삽입/삭제 `O(log n)`, 최대/최소 `O(1)`
 
-
-
 ## **7. 정리**
 
 1. **트리(Tree)**: 비선형 자료구조, 그래프의 일종. 노드들 간 계층 관계를 표현
@@ -242,8 +236,6 @@
 트리는 다양한 파생 구조(이진 탐색 트리, 힙 등)로 확장되며,
 
 그래프 알고리즘, 계층형 데이터, 검색 최적화 등 폭넓게 쓰이는 핵심 자료구조
-
-
 
 ## Traversal(순회)
 
@@ -263,7 +255,7 @@
       
       - 부모 노드 방문 후, 자식노드를 좌,우 순서로 방문
     
-    - 중위순회(inoreder traversal) : LVR
+    - 중위순회(inorder traversal) : LVR
       
       - 왼쪽 자식노드, 부모노드, 오른쪽 자식노드 순으로 방문
     
@@ -287,7 +279,7 @@
   
   - 1. 현재 노드 n 방문하여 처리 : V
     
-    2.  현재 노드 n의 왼쪽 서브트리로 이동 : L
+    2. 현재 노드 n의 왼쪽 서브트리로 이동 : L
     
     3. 현재 노드 n의 오른쪽 서브트리로 이동 : R
   
@@ -347,8 +339,6 @@
   
   <img src="file:///C:/Users/SSAFY/AppData/Roaming/marktext/images/2025-03-04-14-40-30-image.png" title="" alt="" data-align="center">
 
-
-
 - 이진 트리의 순회
   
   <img src="file:///C:/Users/SSAFY/AppData/Roaming/marktext/images/2025-03-04-15-19-36-image.png" title="" alt="" data-align="center">
@@ -358,8 +348,6 @@
   - 중위 순회 : H -> D -> I -> B -> J -> E 
   
   - 후위 순회 : H -> I -> D -> J -> E -> B
-
-
 
 ## Binary Tree Expression(이진 트리 표현)
 
@@ -412,8 +400,6 @@
   <img src="file:///C:/Users/SSAFY/AppData/Roaming/marktext/images/2025-03-04-15-32-04-image.png" title="" alt="" data-align="center">
   
   <img src="file:///C:/Users/SSAFY/AppData/Roaming/marktext/images/2025-03-04-15-32-22-image.png" title="" alt="" data-align="center">
-
-
 
 ## Binary Tree Expression 2
 
@@ -468,3 +454,107 @@
   - 후위 순회 : A B / C * D * E + (후위 표기법)
   
   - 전위 순회 : + * * / A B C D E (전위 표기법)
+
+
+
+
+
+# Binary Search Tree(이진 탐색 트리)
+
+- 개념
+  
+  - 탐색작업을 효율적으로 하기 위한 자료구조
+  
+  - 모든 원소는 서로 다른 유일한 키를 가짐
+  
+  - key(왼쪽 서브트리)<key(루트 노드)<key(오른쪽 서브트리)
+  
+  - 왼쪽 서브트리와 오른쪽 서브트리도 이진 탐색 트리
+  
+  - 중위 순회하면 오름차순으로 정렬된 값 얻을 수 있음
+  
+  <img src="file:///C:/Users/SSAFY/AppData/Roaming/marktext/images/2025-03-05-09-37-32-image.png" title="" alt="" data-align="center">
+  
+  <img src="file:///C:/Users/SSAFY/AppData/Roaming/marktext/images/2025-03-05-09-37-43-image.png" title="" alt="" data-align="center">
+
+- **탐색연산**
+  
+  - 루트에서 시작
+  
+  - 탐색할키 값 x를 루트 노드의 키 값과 비교
+    
+    - (키 값x  = 루트 노드의 키 값)인 경우 : 원하는 원소를 찾았으므로 탐색연산 성공
+    
+    - (키 값x < 루트 노드의 키 값)인 경우 : 루트 노드의 왼쪽 서브트리에 대해서 탐색연산 수행
+    
+    - (키 값x > 루트 노드의 키 값)인 경우 : 루트 노드의 오른쪽 서브트리에 대해서 탐색연산 수행
+  
+  - 서브트리에 대해서 순환적으로 탐색연산 반복
+  
+  - 13 탐색
+  
+  <img src="file:///C:/Users/SSAFY/AppData/Roaming/marktext/images/2025-03-05-09-39-50-image.png" title="" alt="" data-align="center">
+
+- **삽입연산**
+  
+  - 먼저 탐색 연산 수행
+    
+    - 삽입할 원소와 같은 원소가 트리에 있으면 삽입할 수 없으므로, 같은 원소가 트리에 있는지 탐색하여 확인
+    
+    - 탐색에서 탐색 실패가 결정되는 위치가 삽입 위치가 됨
+  
+  - 탐색 실패한 위치에 원소 삽입
+  
+  - 5 삽입
+  
+  <img src="file:///C:/Users/SSAFY/AppData/Roaming/marktext/images/2025-03-05-09-40-46-image.png" title="" alt="" data-align="center">
+
+- 탐색, 삽입, 삭제 시간은 트리의 높이만큼 시간이 걸림
+  
+  - O(h), h : BST의 깊이(height) 
+
+- 평균의 경우
+  
+  - 이진 트리가 균형적으로 생성되어 있는 경우
+  
+  - O(log n)
+
+- 최악의 경우
+  
+  - 한쪽으로 치우친 경사 이진트리의 경우
+  
+  - O(n)
+  
+  - 순차탐색과 시간복잡도가 같음
+
+- 검색 알고리즘의 비교
+  
+  - 배열에서의 순차 검색 : O(N)
+  
+  - 정렬된 배열에서의 순차 검색 : O(N)
+  
+  - 정렬된 배열에서의 이진 탐색 : O(logN)
+    
+    -  고정 배열 크기와 삽입, 삭제 시 추가 연산 필요
+  
+  - 이진 탐색 트리에서의 평균 : O(logN)
+    
+    - 최악의 경우 : O(N)
+    
+    - 완전 이진 트리 또는 균형 트리로 바꿀 수 있다면 최악의 경우 없앨 수 있음
+      
+      - 새로운 원소 삽입할 때 삽입 시간 줄임
+      
+      - 평균과 최악의 시간이 같음.O(logN)
+  
+  - 해쉬 검색 : O(1)
+    
+    - 추가 저장 공간 필요
+
+- **삭제연산**
+  
+  - 예시
+  
+  - 13, 12, 9 차례로 삭제해보기
+  
+  <img src="file:///C:/Users/SSAFY/AppData/Roaming/marktext/images/2025-03-05-09-44-40-image.png" title="" alt="" data-align="center">
