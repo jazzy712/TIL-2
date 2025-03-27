@@ -1,6 +1,6 @@
 ## DFS(깊이 우선탐색)
 
-<img src="file:///C:/Users/SSAFY/AppData/Roaming/marktext/images/2025-02-14-11-54-45-image.png" title="" alt="" data-align="center">
+<img title="" src="file:///C:/Users/SSAFY/AppData/Roaming/marktext/images/2025-02-14-11-54-45-image.png" alt="" data-align="center">
 
 - 비선형구조인 그래프 구조는 그래프로 표현된 모든 자료를 빠짐없이 검색하는 것이 중요
 
@@ -186,8 +186,6 @@
   - 노드의 개수가 많지만 간선이 상대적으로 **드문(sparse)** 그래프에서 공간 절약 가능
   - 공간 복잡도는 `$O(N + E)$` (E는 간선 수)
 
-
-
 **2.1 인접 행렬 + 스택**
 
 ```python
@@ -240,7 +238,6 @@ def DFS_stack(start):
                     stack.append(next_node)
 
 DFS_stack(1)
-
 ```
 
 - push 시점 방문 처리 방식
@@ -292,7 +289,6 @@ def DFS_stack_push_style(start):
 
 # 실행
 DFS_stack_push_style(1)
-
 ```
 
 **2.2 인접 리스트 + 스택**
@@ -351,10 +347,9 @@ def DFS_stack_adj_list(start):
 
 # 실제 DFS 실행 (예: 시작 노드 1)
 DFS_stack_adj_list(1)
-
 ```
 
--  구현 설명
+- 구현 설명
 1. **인접 리스트(`adj_list`) 생성**
 
 ```python
@@ -478,7 +473,6 @@ DFS_recursive 함수의 종료 조건
   - if adj_matrix[start][next_node] == 1 and visited[next_node] == 0: 조건에서, 
   모든 인접 노드가 이미 방문되었다면 재귀 호출이 더 이상 일어나지 않음
 """
-
 ```
 
 - 재귀 함수를 이용할 때에는 **함수 호출 스택**을 자연스럽게 사용합니다.
