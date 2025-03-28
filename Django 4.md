@@ -274,8 +274,6 @@
   
   - 위와 같은 특징을 가지고 있기 때문에 **primary key와 같이 고유성(uniqueness)을 보장하는 조회에서 사용해야함**
 
-
-
 ### Update
 
 - **데이터 수정**
@@ -316,13 +314,9 @@
   DoesNotExist: Article mathching query does not exist
   ```
 
-
-
 ## ORM with view
 
 - **Django shell에서 연습했던 QuerySet API를 직접 view 함수에서 사용하기**
-
-
 
 ### 전체 게시글 조회
 
@@ -361,8 +355,6 @@
     <hr>
   {% endfor %}
   ```
-
-
 
 ## 참고
 
