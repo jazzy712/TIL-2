@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>주식 댓글 분석기</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 40px 20px;
+      background-color: #f9f9f9;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background-color: #ffffff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 30px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .container h1 {
+      font-size: 26px;
+      margin-bottom: 10px;
+    }
+
+    .container p {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 20px;
+    }
+
+    .search-box {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+
+    .search-box input[type="text"] {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+
+    .search-box button {
+      padding: 10px 20px;
+      border: none;
+      background-color: #007bff;
+      color: white;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .search-box button:hover {
+      background-color: #0056b3;
+    }
+
+    .results {
+      margin-top: 20px;
+      border-top: 1px solid #eee;
+      padding-top: 20px;
+    }
+
+    .result-item {
+      margin-bottom: 15px;
+      padding: 10px;
+      background-color: #f1f5ff;
+      border-left: 4px solid #007bff;
+      border-radius: 4px;
+    }
+
+    
+  </style>
+</head>
+<body>
+<div class="container">
+  <p>주식에 대한, 투자자들의 목소리</p>
+  <h1>주식 댓글 분석기</h1>
+
+  <form action="{% url 'crawlings:index' %}" method='POST'>
+  {% csrf_token %}
+    <div class="search-box">
+      <input type="text" name="company_name" placeholder="회사 이름을 입력하세요" />
+      <button type="submit">검색</button>
+    </div>
+  </form>
+  <div>
+    <h1>{{company_name}} ({{ stock_code }})</h1>
+    <h3>수집된 댓글: </h3>
+    {% for comment in comments %}
+    <ul>
+      <li>{{ comment.comments }}</li> 
+      <form action="{% url "crawlings:delete_comment" comment.pk %}" method='POST'>
+        {% csrf_token %}
+        <input type="submit" value='삭제'>
+      </form>
+    </ul>
+    <hr>
+    {% endfor %}
+  </div>
+  
+</div>
+
+</body>
+</html>
